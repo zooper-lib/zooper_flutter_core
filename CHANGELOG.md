@@ -9,3 +9,7 @@
 ## 0.0.3
 
 - Created GitHub organization and moved code to new repository
+
+## 0.0.4
+
+- Added GUID data type
