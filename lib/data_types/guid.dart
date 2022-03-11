@@ -5,8 +5,8 @@ import 'package:validators/validators.dart';
 class Guid {
   static const String _defaultGuid = "00000000-0000-0000-0000-000000000000";
 
-  /// The Guid whose value is the default sequence of characters that represent a 'zero-value' UUID in .Net "00000000-0000-0000-0000-000000000000"
-
+  /// The Guid whose value is the default sequence of characters
+  /// that represent a 'zero-value' UUID in .Net "00000000-0000-0000-0000-000000000000"
   String? _value;
 
   /// Constructor, expects a valid UUID and will throw an exception if the value provided is invalid.
