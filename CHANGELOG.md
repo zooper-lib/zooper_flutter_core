@@ -13,3 +13,7 @@
 ## 0.0.4
 
 - Added GUID data type
+
+## 0.0.5
+
+- Added a JsonConverter for Guid
