@@ -17,3 +17,7 @@
 ## 0.0.5
 
 - Added a JsonConverter for Guid
+
+## 0.0.6
+
+- Fixed a bug where nullable Guids are not serialized correctly
