@@ -15,16 +15,24 @@ class GuidConverter implements JsonConverter<Guid, String> {
   }
 }
 
-class NullableGuidConverter implements JsonConverter<Guid?, String> {
+class NullableGuidConverter implements JsonConverter<Guid?, String?> {
   const NullableGuidConverter();
 
   @override
-  Guid? fromJson(String json) {
+  Guid? fromJson(String? json) {
+    if (json == null) {
+      return null;
+    }
+
     return Guid(json);
   }
 
   @override
-  String toJson(Guid? object) {
+  String? toJson(Guid? object) {
+    if (object == null) {
+      return null;
+    }
+
     return object.toString();
   }
 }
