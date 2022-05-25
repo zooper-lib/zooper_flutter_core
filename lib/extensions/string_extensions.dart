@@ -1,4 +1,7 @@
 extension StringExtensions on String {
+  /// Helper to return an empty [String]
+  static String get empty => '';
+
   Duration toDuration() {
     if (!RegExp(
             r"^(-|\+)?P(?:([-+]?[0-9,.]*)Y)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)W)?(?:([-+]?[0-9,.]*)D)?(?:T(?:([-+]?[0-9,.]*)H)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)S)?)?$")

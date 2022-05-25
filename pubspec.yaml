@@ -1,6 +1,6 @@
 name: zooper_flutter_core
 description: The core package of the whole zooper library
-version: 0.0.6
+version: 0.0.7
 homepage: https://github.com/zooper-lib/
 
 environment:

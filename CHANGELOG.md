@@ -21,3 +21,7 @@
 ## 0.0.6
 
 - Fixed a bug where nullable Guids are not serialized correctly
+
+## 0.0.7
+
+- Added a small helper property to StringExtensions
