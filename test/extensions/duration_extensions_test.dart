@@ -5,7 +5,7 @@ void main() {
   group('DurationExtensions', () {
     test('totalDays returns fractional days', () {
       // Arrange
-      final Duration duration = Duration(hours: 12);
+      const Duration duration = Duration(hours: 12);
 
       // Act
       final double days = duration.totalDays;
@@ -17,7 +17,7 @@ void main() {
 
     test('totalHours returns fractional hours', () {
       // Arrange
-      final Duration duration = Duration(minutes: 90);
+      const Duration duration = Duration(minutes: 90);
 
       // Act
       final double hours = duration.totalHours;
@@ -28,7 +28,7 @@ void main() {
 
     test('toHoursMinutes formats with zero-padding', () {
       // Arrange
-      final Duration duration = Duration(hours: 5, minutes: 7);
+      const Duration duration = Duration(hours: 5, minutes: 7);
 
       // Act
       final String formatted = duration.toHoursMinutes();
@@ -40,7 +40,7 @@ void main() {
 
     test('toHoursMinutesSeconds formats with zero-padding', () {
       // Arrange
-      final Duration duration = Duration(hours: 5, minutes: 7, seconds: 9);
+      const Duration duration = Duration(hours: 5, minutes: 7, seconds: 9);
 
       // Act
       final String formatted = duration.toHoursMinutesSeconds();
@@ -51,7 +51,7 @@ void main() {
 
     test('toHoursMinutesSeconds handles durations longer than 24 hours', () {
       // Arrange
-      final Duration duration = Duration(hours: 27, minutes: 15, seconds: 0);
+      const Duration duration = Duration(hours: 27, minutes: 15, seconds: 0);
 
       // Act
       final String formatted = duration.toHoursMinutesSeconds();

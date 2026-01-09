@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Unit tests for extension methods
+- GitHub Actions PR workflow (format, analyze, test)
+- PR now fails on analyzer infos/warnings (strict lint cleanliness)
 - Dependency-free UUID generation/validation (v1–v8)
 - ULID data type
 

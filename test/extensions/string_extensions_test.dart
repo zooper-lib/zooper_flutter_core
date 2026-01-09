@@ -20,7 +20,7 @@ void main() {
 
       // Assert
       // Why: weeks need correct conversion into days.
-      expect(duration, Duration(days: 14));
+      expect(duration, const Duration(days: 14));
     });
 
     test('toDuration parses days, hours, minutes and seconds', () {
@@ -31,7 +31,7 @@ void main() {
       final Duration duration = durationString.toDuration();
 
       // Assert
-      expect(duration, Duration(days: 1, hours: 2, minutes: 3, seconds: 4));
+      expect(duration, const Duration(days: 1, hours: 2, minutes: 3, seconds: 4));
     });
 
     test('toDuration parses time-only durations', () {
@@ -42,7 +42,7 @@ void main() {
       final Duration duration = durationString.toDuration();
 
       // Assert
-      expect(duration, Duration(minutes: 45));
+      expect(duration, const Duration(minutes: 45));
     });
 
     test('toDuration throws ArgumentError for invalid format', () {
