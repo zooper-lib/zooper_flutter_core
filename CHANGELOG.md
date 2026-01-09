@@ -1,27 +1,62 @@
-## 0.0.1
+# Changelog
 
-- Implemented basic extension classes
+All notable changes to this project will be documented in this file.
 
-## 0.0.2
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-- Added descriptions and updated README
+## [Unreleased]
 
-## 0.0.3
+### Added
 
-- Created GitHub organization and moved code to new repository
+- Unit tests for extension methods
+- Dependency-free UUID generation/validation (v1–v8)
+- ULID data type
 
-## 0.0.4
+### Removed
 
-- Added GUID data type
+- `Guid` and `GuidConverter` (use UUID strings / `Uuid` helpers instead)
+- `uuid` and `validators` dependencies
 
-## 0.0.5
+## [0.0.7]
 
-- Added a JsonConverter for Guid
+### Added
 
-## 0.0.6
+- Small helper property to `StringExtensions`
 
-- Fixed a bug where nullable Guids are not serialized correctly
+## [0.0.6]
 
-## 0.0.7
+### Fixed
 
-- Added a small helper property to StringExtensions
+- Nullable GUIDs not being serialized correctly
+
+## [0.0.5]
+
+### Added
+
+- JSON converter for GUID
+
+## [0.0.4]
+
+### Added
+
+- GUID data type
+
+## [0.0.3]
+
+### Changed
+
+- Moved code into the Zooper GitHub organization
+
+## [0.0.2]
+
+### Changed
+
+- Updated package descriptions and README
+
+## [0.0.1]
+
+### Added
+
+- Basic extension methods
+
