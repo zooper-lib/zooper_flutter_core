@@ -1,7 +1,14 @@
-import 'package:jiffy/jiffy.dart';
 import 'package:intl/intl.dart';
+import 'package:jiffy/jiffy.dart';
 
+/// Date and time helpers used across Zooper packages.
+///
+/// These helpers focus on common calendar operations that are easy to
+/// accidentally get wrong (like month math).
 extension DateTimeExtensions on DateTime {
+  /// Returns the first day of the week containing this date.
+  ///
+  /// This follows the ISO-8601 convention where weeks start on Monday.
   DateTime firstDayOfWeek() {
     // The week starts with monday, not sunday!
     return subtract(Duration(days: weekday - 1));
@@ -22,10 +29,18 @@ extension DateTimeExtensions on DateTime {
     return DateTime(year, month, day, 23, 59, 59);
   }
 
+  /// Adds [months] months to this date.
+  ///
+  /// This delegates to Jiffy to handle edge cases (like adding one month to
+  /// the 31st of a month).
   DateTime addMonth([int months = 1]) {
     return Jiffy(this).add(months: months).dateTime;
   }
 
+  /// Subtracts [months] months from this date.
+  ///
+  /// This delegates to Jiffy to handle edge cases (like subtracting one month
+  /// from the 31st of a month).
   DateTime subtractMonth([int months = 1]) {
     return Jiffy(this).subtract(months: months).dateTime;
   }
@@ -35,7 +50,7 @@ extension DateTimeExtensions on DateTime {
 
   /// Converts the [DateTime] into an ISO8601 [String]
   ///
-  /// e.g. 2021-5-25T12:00:00.000Z
+  /// This uses Jiffy's default ISO-8601 formatting.
   String toIso8601() => Jiffy(this).format();
 
   /// Formats the [DateTime] to a readable [String]
