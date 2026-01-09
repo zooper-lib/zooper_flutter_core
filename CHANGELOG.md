@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Moved implementation libraries under `lib/src/`; import via `package:zooper_flutter_core/zooper_flutter_core.dart`
+
 ### Added
 
 - Unit tests for extension methods

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:zooper_flutter_core/extensions/string_extensions.dart';
+import 'package:zooper_flutter_core/zooper_flutter_core.dart';
 
 void main() {
   group('StringExtensions', () {
