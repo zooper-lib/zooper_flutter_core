@@ -1,0 +1,108 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: Publish to pub.dev
+
+"on":
+  push:
+    tags:
+      - "v*"
+
+concurrency:
+  group: "publish-${{ github.ref }}"
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Dart
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+
+      - name: Verify tag matches pubspec version
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          tag_name="${GITHUB_REF_NAME}"
+          pubspec_version_line="$(grep -E '^version:' pubspec.yaml || true)"
+          if [[ -z "${pubspec_version_line}" ]]; then
+            echo "Could not find a version in pubspec.yaml"
+            exit 1
+          fi
+
+          pubspec_version="$(echo "${pubspec_version_line}" | awk '{print $2}')"
+          pubspec_version_without_build_metadata="${pubspec_version%%+*}"
+          expected_tag="v${pubspec_version_without_build_metadata}"
+
+          if [[ "${tag_name}" != "${expected_tag}" ]]; then
+            echo "Tag/version mismatch"
+            echo "  tag:      ${tag_name}"
+            echo "  expected: ${expected_tag} (from pubspec.yaml version: ${pubspec_version})"
+            exit 1
+          fi
+
+      - name: Verify tag commit is on main
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git fetch origin main --prune
+          if ! git show-ref --verify --quiet refs/remotes/origin/main; then
+            echo "origin/main not found after fetch; cannot verify Gitflow publish safety"
+            exit 1
+          fi
+
+          if ! git merge-base --is-ancestor "${GITHUB_SHA}" origin/main; then
+            echo "Refusing to publish: tag commit is not contained in origin/main"
+            exit 1
+          fi
+
+      - name: Dart version
+        run: dart --version
+
+      - name: Install dependencies
+        run: dart pub get
+
+      - name: Format (verify)
+        run: dart format --output=none --set-exit-if-changed .
+
+      - name: Analyze
+        run: dart analyze --fatal-infos --fatal-warnings
+
+      - name: Test
+        run: dart test
+
+      - name: Configure pub.dev credentials
+        shell: bash
+        env:
+          PUB_CREDENTIALS: ${{ secrets.PUB_CREDENTIALS }}
+        run: |
+          set -euo pipefail
+
+          if [[ -z "${PUB_CREDENTIALS:-}" ]]; then
+            echo "Missing secrets.PUB_CREDENTIALS. Add it or configure Trusted Publishing (OIDC)."
+            exit 1
+          fi
+
+          umask 077
+          mkdir -p "${HOME}/.config/dart"
+          printf '%s' "${PUB_CREDENTIALS}" > "${HOME}/.config/dart/pub-credentials.json"
+
+      - name: Publish (dry run)
+        run: dart pub publish --dry-run
+
+      - name: Publish
+        run: dart pub publish --force
