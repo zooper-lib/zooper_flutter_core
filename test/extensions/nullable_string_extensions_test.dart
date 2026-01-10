@@ -1,5 +1,5 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:zooper_flutter_core/extensions/nullable_string_extensions.dart';
+import 'package:test/test.dart';
+import 'package:zooper_flutter_core/zooper_flutter_core.dart';
 
 void main() {
   group('NullableStringExtensions', () {
@@ -16,7 +16,7 @@ void main() {
 
     test('isNullOrEmpty returns true for empty string', () {
       // Arrange
-      const String? value = '';
+      const String value = '';
 
       // Act
       final bool result = value.isNullOrEmpty();
@@ -27,7 +27,7 @@ void main() {
 
     test('isNullOrEmpty returns false for non-empty string', () {
       // Arrange
-      const String? value = 'x';
+      const String value = 'x';
 
       // Act
       final bool result = value.isNullOrEmpty();
@@ -49,7 +49,7 @@ void main() {
 
     test('isNullOrWhitespace returns true for a single space', () {
       // Arrange
-      const String? value = ' ';
+      const String value = ' ';
 
       // Act
       final bool result = value.isNullOrWhitespace();
@@ -60,7 +60,7 @@ void main() {
 
     test('isNullOrWhitespace returns false for empty string', () {
       // Arrange
-      const String? value = '';
+      const String value = '';
 
       // Act
       final bool result = value.isNullOrWhitespace();
@@ -72,7 +72,7 @@ void main() {
 
     test('isNullOrWhitespace returns false for other whitespace', () {
       // Arrange
-      const String? tab = '\t';
+      const String tab = '\t';
 
       // Act
       final bool result = tab.isNullOrWhitespace();
