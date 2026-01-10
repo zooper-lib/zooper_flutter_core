@@ -1,7 +1,8 @@
 import 'package:test/test.dart';
+import 'package:zooper_flutter_core/src/strong_types/event_id.dart';
 import 'package:zooper_flutter_core/zooper_flutter_core.dart';
 
-class _TestDomainEvent implements ZooperDomainEvent<String> {
+class _TestDomainEvent implements ZooperDomainEvent {
   _TestDomainEvent({
     required this.id,
     required this.occurredOn,
@@ -9,7 +10,7 @@ class _TestDomainEvent implements ZooperDomainEvent<String> {
   });
 
   @override
-  final String id;
+  final EventId id;
 
   @override
   final DateTime occurredOn;
@@ -30,18 +31,18 @@ void main() {
         'nullableValue': null,
       };
       final _TestDomainEvent event = _TestDomainEvent(
-        id: 'event-123',
+        id: const EventId('event-123'),
         occurredOn: occurredOn,
         metadata: metadata,
       );
 
       // Act: Upcast to each interface to ensure the type relationships hold.
-      final IdentifiedEvent<String> identifiedEvent = event;
+      final IdentifiedEvent<EventId> identifiedEvent = event;
       final TimestampedEvent timestampedEvent = event;
       final MetadataEvent metadataEvent = event;
 
       // Assert: The core contract is accessible through each interface.
-      expect(identifiedEvent.id, 'event-123');
+      expect(identifiedEvent.id, const EventId('event-123'));
       expect(timestampedEvent.occurredOn, occurredOn);
       expect(metadataEvent.metadata, metadata);
     });

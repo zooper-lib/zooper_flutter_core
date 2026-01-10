@@ -1,3 +1,5 @@
+import 'package:zooper_flutter_core/src/strong_types/event_id.dart';
+
 /// A domain event that can be uniquely identified.
 ///
 /// Most Zooper packages model domain events as immutable value objects.
@@ -41,4 +43,4 @@ abstract interface class MetadataEvent {
 ///
 /// This combines identification, timestamping, and metadata into a single
 /// interface to keep event handling code consistent across packages.
-abstract interface class ZooperDomainEvent<T> implements IdentifiedEvent<T>, TimestampedEvent, MetadataEvent {}
+abstract interface class ZooperDomainEvent implements IdentifiedEvent<EventId>, TimestampedEvent, MetadataEvent {}
