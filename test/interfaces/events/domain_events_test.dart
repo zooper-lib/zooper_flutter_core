@@ -1,5 +1,4 @@
 import 'package:test/test.dart';
-import 'package:zooper_flutter_core/src/strong_types/event_id.dart';
 import 'package:zooper_flutter_core/zooper_flutter_core.dart';
 
 class _TestDomainEvent implements ZooperDomainEvent {
