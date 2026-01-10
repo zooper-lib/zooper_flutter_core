@@ -1,5 +1,4 @@
-# Include the recommended Flutter lints.
-include: package:flutter_lints/flutter.yaml
+include: package:lints/recommended.yaml
 
 formatter:
   # Keep trailing commas.

@@ -255,7 +255,7 @@ class Uuid {
     int i = 0;
     while (i < normalized.length) {
       final int codeUnit = normalized.codeUnitAt(i);
-      if (codeUnit == 45 /* '-' */) {
+      if (codeUnit == 45 /* '-' */ ) {
         i++;
         continue;
       }

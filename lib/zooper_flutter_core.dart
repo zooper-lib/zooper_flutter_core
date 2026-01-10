@@ -2,7 +2,7 @@
 ///
 /// This package intentionally keeps dependencies minimal and provides small,
 /// stable building blocks that other Zooper packages can rely on.
-library zooper_flutter_core;
+library;
 
 // Data types
 export 'src/data_types/ulid.dart';
