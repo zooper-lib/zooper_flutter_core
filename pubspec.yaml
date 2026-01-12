@@ -8,10 +8,10 @@ environment:
 
 dependencies:
 
-  intl: ^0.17.0
+  intl: ^0.20.2
 
   # Used for extensions on DateTime
-  jiffy: ^4.1.0
+  jiffy: ^6.4.4
 
   json_annotation: ^4.4.0
 

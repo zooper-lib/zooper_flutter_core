@@ -34,7 +34,7 @@ extension DateTimeExtensions on DateTime {
   /// This delegates to Jiffy to handle edge cases (like adding one month to
   /// the 31st of a month).
   DateTime addMonth([int months = 1]) {
-    return Jiffy(this).add(months: months).dateTime;
+    return Jiffy.parseFromDateTime(this).add(months: months).dateTime;
   }
 
   /// Subtracts [months] months from this date.
@@ -42,7 +42,7 @@ extension DateTimeExtensions on DateTime {
   /// This delegates to Jiffy to handle edge cases (like subtracting one month
   /// from the 31st of a month).
   DateTime subtractMonth([int months = 1]) {
-    return Jiffy(this).subtract(months: months).dateTime;
+    return Jiffy.parseFromDateTime(this).subtract(months: months).dateTime;
   }
 
   /// Gets the date with hour:0, minute:0, ...
@@ -51,7 +51,7 @@ extension DateTimeExtensions on DateTime {
   /// Converts the [DateTime] into an ISO8601 [String]
   ///
   /// This uses Jiffy's default ISO-8601 formatting.
-  String toIso8601() => Jiffy(this).format();
+  String toIso8601() => Jiffy.parseFromDateTime(this).format();
 
   /// Formats the [DateTime] to a readable [String]
   String format(DateFormat dateFormat) => dateFormat.format(this);
