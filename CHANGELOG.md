@@ -5,12 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+## [1.0.3] - 2026-01-12
 
 ### Changed
 
-- Upgraded `intl` dependency from `0.17.0` to `0.18.0`
-- Upgraded `Jiffy` to version `6.4.4`
+- Upgraded `intl` dependency to `^0.20.2`
+- Upgraded `jiffy` dependency to `^6.4.4`
 
 ## [1.0.2] - 2026-01-10
 
