@@ -15,8 +15,5 @@ export 'src/extensions/duration_extensions.dart';
 export 'src/extensions/nullable_string_extensions.dart';
 export 'src/extensions/string_extensions.dart';
 
-// Interfaces
-export 'src/interfaces/events/domain_events.dart';
-
 // Strong types
 export 'src/strong_types/event_id.dart';
