@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-01-21
+
 ### Removed
 
 - **BREAKING**: Removed `ZooperDomainEvent` and related event interfaces (`IdentifiedEvent`, `TimestampedEvent`, `MetadataEvent`). Use the dedicated `bounded` package instead.
